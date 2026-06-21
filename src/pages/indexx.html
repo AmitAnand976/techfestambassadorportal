@@ -1,0 +1,142 @@
+<!DOCTYPE html> 
+<html lang="en"> <head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+</head> 
+<body style="background-color: pink;">
+<button onclick="letter()" style="color:aliceblue;
+border-radius: 10px; background-color: #8a2be2; padding: 10px 20px;">Offer Letter </button>
+<p id="ppp" style="display: none;"> Hi <span id="display-name"> </span>, we are thrilled to announce ...</p>
+<p> 🪙 Points: </p><p id="display-points">0</p>
+
+<div class="tasks"> 
+<p style="color:#8a2be2;">Tasks</p>
+
+<h1>Make a webpage (paste google drive link) 100 points 🪙 </h1>
+<input style="border-radius: 10px;  padding: 10px 20px;" id="1link" title="task" placeholder="https://drive..."></input>
+<button id="status1" style="cursor: pointer; color:aliceblue; border-radius: 10px; background-color: #8a2be2; 
+padding: 10px 20px;" onclick="submit1()">Submit</button>
+
+<h1>Make a reel (paste google drive link) 150 points 🪙</h1>
+<input id="2link" style="border-radius: 10px;  padding: 10px 20px;" title="task" placeholder="https://drive..."></input>
+<button id="status2" style="cursor: pointer; color:aliceblue; border-radius: 10px; background-color: #8a2be2;
+padding: 10px 20px;" onclick="submit2()">Submit</button>
+
+<h1>Draft an E-Mail (paste google drive link) 100 points 🪙</h1>
+<input id="3link"style="border-radius: 10px;padding: 10px 20px;" title="task" placeholder="https://drive..."></input>
+<button id="status3"style="cursor: pointer; color:aliceblue; border-radius: 10px; background-color: #8a2be2; padding: 10px 20px;" 
+onclick="submit3()">Submit</button></div>
+<script>
+
+let points = 0;  
+function updatepoints(){ 
+            document.getElementById("display-points").innerText = points;
+            }
+status1= document.getElementById("status1");
+status2= document.getElementById("status2"); 
+status3= document.getElementById("status3");
+function yell_wheres_yo_link_boi(){
+    alert("YO WHERES YOUR LINK??!!!")
+}
+let task1clicked = 0; 
+let task2clicked = 0;
+let task3clicked = 0; 
+let status = "";
+function upd(status){
+    document.getElementById(status).innerText = "Submitted"; 
+    document.getElementById(status).style.backgroundColor = "green"; 
+    document.getElementById(status).style.cursor = "none";
+}
+function submit1(){
+    val = document.getElementById('1link').value.trim();
+    if(task3clicked>0){
+        task3clicked=0;
+        return;
+    }  else{
+    if (!val){ 
+        yell_wheres_yo_link_boi();
+    }
+    else if (val){ 
+        points += 100;  
+        updatepoints();       
+        upd(status="status1"); 
+
+    } 
+    task3clicked += 1;
+}
+}
+
+
+
+function submit2(){
+    val = document.getElementById('2link').value.trim();
+    if(task3clicked>0){
+  
+        task3clicked=0;
+        return;
+    }  else{
+    if (!val){ 
+        yell_wheres_yo_link_boi();
+    }
+    else if (val){ 
+        points += 150;  
+        updatepoints();      
+        upd(status="status2"); 
+    } 
+    task3clicked += 1;
+}
+}
+
+
+
+
+
+function submit3(){
+    val = document.getElementById('3link').value.trim();
+    if(task3clicked>0){   
+        task3clicked=0;
+        return;
+    }  else{
+    if (!val){ 
+        yell_wheres_yo_link_boi();
+    }
+    else if (val){ 
+        points += 100;  
+        updatepoints();
+        upd(status="status3"); 
+    } 
+    task3clicked += 1;
+}
+}
+
+
+
+
+
+
+
+
+
+
+    function showletter(){ 
+        let firstname = prompt("Enter your first name"); 
+        if (firstname) { 
+            document.getElementById("display-name").innerText = firstname; document.getElementById("ppp").style.display = "block";
+        }
+        else{ 
+            alert("Please Enter a name!") 
+        } 
+    }
+
+    function letter(){ 
+        if (points>300){
+            showletter()   
+        }
+        else{ 
+            alert("Your points should avail more than 300 to get your offer letter.")}
+        } 
+        
+    </script>          
+    </body>
+</html>
